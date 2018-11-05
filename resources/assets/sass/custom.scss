@@ -1,0 +1,29 @@
+
+    .app-content{
+      background: #FFFFFF;
+    }
+    .form-group{
+      label{
+        font-weight: 600;
+        color: #656968;
+      }
+    }
+    .headerTtile{
+      background: rgba(75, 183, 100, 0.11);
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      width: 100%;
+      padding: 13px;
+      font-weight: 600;
+      color: #6c9079;
+      font-size: 17px;
+      text-shadow: 0 0 1px #dff2ff;
+    }
+
+    .app-header {
+      background-color: #444f58;
+    }
+    .app-header__logo{
+      background: none;
+    }
