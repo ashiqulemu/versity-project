@@ -3,13 +3,9 @@
     <div>
 
         <div class="container">
+            <form @submit.prevent="updateCategory()">
 
-
-
-            <form  @submit.prevent="updateCategory()">
-
-
-                <div class="bg-danger"> {{updateMessage}}</div>
+                <div class="text-success p-3"> {{updateMessage}}</div>
 
 
                 <div class="row">
@@ -21,7 +17,8 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label class=" ">Category Name </label>
-                            <input type="text" class="form-control" v-model= "category_name"   placeholder="Category name..... ">
+                            <input type="text" class="form-control" v-model="category_name"
+                                   placeholder="Category name..... ">
 
                         </div>
                     </div>
@@ -29,7 +26,8 @@
                     <div class="col-md-8">
                         <div class="form-group">
                             <label class=" "> Description </label>
-                            <textarea name="" id="" cols="5" rows="2" v-model="category_desc" class="form-control"></textarea>
+                            <textarea name="" id="" cols="5" rows="2" v-model="category_desc"
+                                      class="form-control"></textarea>
 
                         </div>
                     </div>
@@ -44,9 +42,7 @@
             </form>
 
 
-
         </div>
-
 
 
     </div>
@@ -56,46 +52,42 @@
 
 <script>
     import axios from 'axios'
+
     export default {
         name: "editCategory",
-        data(){
+        data() {
 
-            return{
-                category_name:'',
-                category_desc:'',
+            return {
+                category_name: '',
+                category_desc: '',
 
-                updateMessage:''
+                updateMessage: ''
             }
         },
-        created(){
-            axios.get('category/'+this.$route.params.id+'/edit',{
-
-            }).then(response=>{
+        created() {
+            axios.get('category/' + this.$route.params.id + '/edit', {}).then(response => {
 
 
-                this.category_name= response.data.editCategory.category_name,
-                this.category_desc= response.data.editCategory.category_desc
-
+                this.category_name = response.data.editCategory.category_name,
+                    this.category_desc = response.data.editCategory.category_desc
 
 
             })
 
         },
-        methods:{
+        methods: {
 
-            updateCategory(){
-                    axios.patch('/category/'+this.$route.params.id,{
-                        category_name:this.category_name,
-                        category_desc:this.category_desc,
+            updateCategory() {
+                axios.patch('/category/' + this.$route.params.id, {
+                    category_name: this.category_name,
+                    category_desc: this.category_desc,
 
-                    }).then(response=>{
+                }).then(response => {
 
-                        this.updateMessage=response.data.updateMessage
-                    })
+                    this.updateMessage = response.data.updateMessage
+                })
 
             }
-
-
 
 
         }

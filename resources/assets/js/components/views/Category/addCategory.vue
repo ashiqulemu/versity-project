@@ -13,7 +13,7 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label class=" ">Category Name </label>
-                            <input type="text" class="form-control" v-model= "category_name" @mouseover="checkCategoryName"  placeholder="Category name..... ">
+                            <input type="text" class="form-control" v-model= "category_name" @keyup="checkCategoryName"  placeholder="Category name..... ">
                             <span class="text-danger">{{errorMessage}}</span>
                         </div>
                     </div>
